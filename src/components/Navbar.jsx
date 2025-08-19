@@ -16,7 +16,8 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="max-w-[1280px] mx-auto sticky top-0 z-50 flex justify-between h-[82px] items-center p-4 bg-white/70 backdrop-blur-[15px]">
+      <header className="w-full max-w-[1360px] mx-auto sticky top-0 z-50 flex justify-between h-[82px] items-center p-4 bg-white/70 backdrop-blur-[15px]">
+  
         {/* Left Logo and Title */}
         <div className="flex items-center space-x-2">
           <CiBaseball
