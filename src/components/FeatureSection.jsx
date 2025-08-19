@@ -63,40 +63,43 @@ const FeatureSection = () => {
   ];
 
   const getIcon = (iconName, screenSize = 'desktop') => {
-    const iconPath = `/assets/${iconName}.svg`;
+  const iconPath = `/assets/${iconName}.svg`;
 
-    // Desktop sizes
-    if (screenSize === 'desktop') {
-      if (iconName === 'motorcycle' || iconName === 'car' || iconName === 'arrows-left-right') {
-        return <img src={iconPath} alt={iconName} className="w-[120px] h-[120px]" style={{ filter: 'brightness(0) saturate(100%) invert(32%) sepia(100%) saturate(1000%) hue-rotate(240deg) brightness(100%) contrast(100%)' }} />;
-      } else {
-        return <img src={iconPath} alt={iconName} className="w-[48px] h-[48px]" style={{ filter: 'brightness(0) saturate(100%) invert(32%) sepia(100%) saturate(1000%) hue-rotate(240deg) brightness(100%) contrast(100%)' }} />;
-      }
-    }
-
-    // Tablet sizes
-    if (screenSize === 'tablet') {
-      if (iconName === 'motorcycle' || iconName === 'car') {
-        return <img src={iconPath} alt={iconName} className="w-[120px] h-[120px]" style={{ filter: 'brightness(0) saturate(100%) invert(32%) sepia(100%) saturate(1000%) hue-rotate(240deg) brightness(100%) contrast(100%)' }} />;
-      } else if (iconName === 'truck' || iconName === 'bus') {
-        return <img src={iconPath} alt={iconName} className="w-[48px] h-[48px]" style={{ filter: 'brightness(0) saturate(100%) invert(32%) sepia(100%) saturate(1000%) hue-rotate(240deg) brightness(100%) contrast(100%)' }} />;
-      } else {
-        return <img src={iconPath} alt={iconName} className="w-[24%] h-[75%]" style={{ filter: 'brightness(0) saturate(100%) invert(32%) sepia(100%) saturate(1000%) hue-rotate(240deg) brightness(100%) contrast(100%)' }} />;
-      }
-    }
-
-    // Mobile sizes
-    if (screenSize === 'mobile') {
-      if (iconName === 'car' || iconName === 'arrows-left-right') {
-        return <img src={iconPath} alt={iconName} className="w-[120px] h-[120px]" style={{ filter: 'brightness(0) saturate(100%) invert(32%) sepia(100%) saturate(1000%) hue-rotate(240deg) brightness(100%) contrast(100%)' }} />;
-      } else {
-        return <img src={iconPath} alt={iconName} className="w-[48px] h-[48px]" style={{ filter: 'brightness(0) saturate(100%) invert(32%) sepia(100%) saturate(1000%) hue-rotate(240deg) brightness(100%) contrast(100%)' }} />;
-      }
-    }
-
-    // Default fallback
-    return <img src={iconPath} alt={iconName} className="w-8 h-8" style={{ filter: 'brightness(0) saturate(100%) invert(32%) sepia(100%) saturate(1000%) hue-rotate(240deg) brightness(100%) contrast(100%)' }} />;
+  // Universal filter for #4611F5
+  const purpleStyle = { 
+    filter: 'invert(13%) sepia(93%) saturate(7481%) hue-rotate(251deg) brightness(93%) contrast(113%)' 
   };
+
+  if (screenSize === 'desktop') {
+    if (iconName === 'motorcycle' || iconName === 'car' || iconName === 'arrows-left-right') {
+      return <img src={iconPath} alt={iconName} className="w-[120px] h-[120px]" style={purpleStyle} />;
+    } else {
+      return <img src={iconPath} alt={iconName} className="w-[48px] h-[48px]" style={purpleStyle} />;
+    }
+  }
+
+  if (screenSize === 'tablet') {
+    if (iconName === 'motorcycle' || iconName === 'car') {
+      return <img src={iconPath} alt={iconName} className="w-[120px] h-[120px]" style={purpleStyle} />;
+    } else if (iconName === 'truck' || iconName === 'bus') {
+      return <img src={iconPath} alt={iconName} className="w-[48px] h-[48px]" style={purpleStyle} />;
+    } else {
+      return <img src={iconPath} alt={iconName} className="w-[24%] h-[75%]" style={purpleStyle} />;
+    }
+  }
+
+  if (screenSize === 'mobile') {
+    if (iconName === 'car' || iconName === 'arrows-left-right') {
+      return <img src={iconPath} alt={iconName} className="w-[120px] h-[120px]" style={purpleStyle} />;
+    } else {
+      return <img src={iconPath} alt={iconName} className="w-[48px] h-[48px]" style={purpleStyle} />;
+    }
+  }
+
+  // Default fallback
+  return <img src={iconPath} alt={iconName} className="w-8 h-8" style={purpleStyle} />;
+};
+
 
   const renderCard = (feature, index, padding = "p-8", extraClasses = "", screenSize = 'desktop') => {
     const isIconLeft = feature.iconLeft && screenSize !== 'mobile';
