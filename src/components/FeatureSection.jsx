@@ -1,8 +1,6 @@
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { motion as Motion } from "framer-motion";
 
 const FeatureSection = () => {
-  const [pressedCard, setPressedCard] = useState(null);
 
   const cardVariants = {
     hidden: {
@@ -48,10 +46,7 @@ const FeatureSection = () => {
     },
   };
 
-  const handleCardPress = (cardId) => {
-    setPressedCard(cardId);
-    setTimeout(() => setPressedCard(null), 150);
-  };
+  // No interactive press animation required
 
   const features = [
     { id: "klasse-a", title: "Klasse A", description: "Krafträder in vier Kategorien, von leichten Kleinkrafträdern (Mopeds) bis größere Motorräder.", icon: "motorcycle", iconTop: false, iconLeft: true },
@@ -105,14 +100,13 @@ const FeatureSection = () => {
     const isIconLeft = feature.iconLeft && screenSize !== 'mobile';
 
     return (
-      <motion.div
+      <Motion.div
         key={feature.id}
         variants={cardVariants}
         initial="hidden"
         whileInView="visible"
         whileHover="hover"
         whileTap="active"
-        // animate={pressedCard === feature.id ? "active" : "visible"}
         viewport={{ once: true, margin: "-80px", amount: 0.3 }}
         transition={{
           delay: index * 0.15,
@@ -122,7 +116,7 @@ const FeatureSection = () => {
           damping: 20,
           stiffness: 100
         }}
-        onClick={() => handleCardPress(feature.id)}
+        
         className={`relative group cursor-pointer w-full h-full ${extraClasses}`}
       >
         <div
@@ -142,10 +136,10 @@ const FeatureSection = () => {
               </div>
             </div>
           ) : feature.iconTop ? (
-            <div className="flex flex-col items-center justify-center text-center mb-2 h-full">
-              <div className="flex flex-col items-center justify-center flex-1">
-                <div className="mb-3 flex items-center justify-center">{getIcon(feature.icon, screenSize)}</div>
-                <h3 className="font-bold text-gray-900 text-2xl leading-snug text-center w-full transition-all duration-200 ">
+            <div className={`${feature.id === 'klasse-b' ? 'flex flex-col justify-center h-full text-left items-stretch' : 'flex flex-col items-center justify-center text-center mb-2 h-full'}`}>
+              <div className={`${feature.id === 'klasse-b' ? 'flex flex-col justify-center flex-1 items-stretch' : 'flex flex-col items-center justify-center flex-1'}`}>
+                <div className="mb-3 self-center flex items-center justify-center">{getIcon(feature.icon, screenSize)}</div>
+                <h3 className={`font-bold text-gray-900 text-2xl leading-snug w-full transition-all duration-200 ${feature.id === 'klasse-b' ? 'text-left' : 'text-center'}`}>
                   {feature.title}
                 </h3>
               </div>
@@ -159,7 +153,6 @@ const FeatureSection = () => {
             </div>
           )}
 
-          {/* Description for non icon-left layouts */}
           {!isIconLeft && (
             <p className="text-gray-600 leading-relaxed flex-1 flex items-center text-lg transition-all duration-200 ">
               {feature.description}
@@ -173,7 +166,7 @@ const FeatureSection = () => {
             </div>
           </div>
         </div>
-      </motion.div>
+      </Motion.div>
     );
   };
 
@@ -189,7 +182,7 @@ const FeatureSection = () => {
     >
       <div className="max-w-7xl mx-auto w-full">
         {/* Heading */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 80, scale: 0.9 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true, margin: "-120px" }}
@@ -206,7 +199,7 @@ const FeatureSection = () => {
             Schritte für alle Führerscheinklassen
           </h3>
 
-        </motion.div>
+        </Motion.div>
 
         {/* Responsive Layout */}
         <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-6 lg:grid-rows-4">
