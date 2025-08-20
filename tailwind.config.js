@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         satoshi: ['Satoshi', 'sans-serif'],
+        'dm-sans': ['"DM Sans"', 'sans-serif'],
       },
       screens: {
         '1200': '1200px', // custom breakpoint

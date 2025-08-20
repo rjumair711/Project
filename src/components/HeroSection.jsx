@@ -17,7 +17,7 @@ const HeroSection = () => {
             className="flex justify-center items-start pt-[120px] px-6 gap-10"
         >
             <div className="flex justify-center items-center min-h-screen -mt-[30px]">
-                <div className="text-center max-w-4xl">
+                <div className="text-center max-w-4xl mt-[70px]">
                     <motion.h1
                         className="text-black font-bold font-satoshi w-full text-[40px] sm:text-[48px] md:text-[56px] lg:text-[64px] leading-tight mb-6 flex flex-wrap justify-center"
                         initial="hidden"
