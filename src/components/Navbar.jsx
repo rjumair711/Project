@@ -16,98 +16,107 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="w-full max-w-[1360px] mx-auto sticky top-0 z-50 flex justify-between h-[82px] items-center p-4 bg-white/70 backdrop-blur-[15px]">
-  
-        {/* Left Logo and Title */}
-        <div className="flex items-center space-x-2">
-          <CiBaseball
-            size={34}
-            style={{ color: "white", backgroundColor: "blue", borderRadius: "50%" }}
-          />
-          <p className="text-gradient">
-            <span className="font-normal">Wie</span>Führerschein
-          </p>
-        </div>
+      <header className="w-full fixed top-0 z-50 flex justify-between h-[82px] items-center p-4 bg-white/70 backdrop-blur-[15px]">
+        <div className="max-w-[1280px] mx-auto w-full z-50 flex justify-between h-[82px] items-center p-4">
 
-        {/* Space Header */}
-        <div className="w-[34vw] h-[7vh] bg-transparent rounded-md"></div>
-
-        {/* Desktop Menu */}
-        <div className="hidden 1200:flex items-center space-x-6">
-          {/* Menu 1 */}
-          <div className="relative group">
-            <button className="text-black hover:bg-gray-100 -mt-1 text-[18px] mr-2 p-2 rounded-md flex items-center">
-              Menu
-            </button>
-          </div>
-
-          {/* Menu 2 */}
-          <div className="dropdown-group group">
-            <button className="dropdown-button text-black whitespace-nowrap hover:bg-gray-100 flex group-hover:bg-gray-100 group-hover:rounded-md -mr-3 p-2 rounded-md items-center">
-              Menu 2
-              <img
-                className="ml-1 transform transition-transform duration-300 ease-in-out group-hover:rotate-180 filter invert-0 brightness-0"
-                src="/assets/keyboardArrowDown.svg" // <- keep as /assets/...
-                alt="Arrow"
-              />
-            </button>
-            <div className="dropdown-hover-bridge"></div>
-            <div className="dropdown-menu-1 absolute top-full left-0 opacity-0 transform -translate-y-2 pointer-events-none transition duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
-              <p className="dropdown-item">Example 1</p>
-              <p className="dropdown-item">Example Item 2</p>
-            </div>
-          </div>
-
-          {/* Menu 3 */}
-          <div className="dropdown-group group">
-            <button className="dropdown-button whitespace-nowrap text-black hover:bg-gray-100 flex group-hover:bg-gray-100 group-hover:rounded-md p-2 rounded-md items-center">
-              Menu 3
-              <img
-                className="ml-1 transform transition-transform duration-300 ease-in-out group-hover:rotate-180 filter invert-0 brightness-0"
-                src="/assets/keyboardArrowDown.svg" // <- fix path
-                alt=""
-              />
-            </button>
-            <div className="dropdown-hover-bridge"></div>
-            <div className="dropdown-menu-2 absolute top-full left-0 opacity-0 transform -translate-y-2 pointer-events-none transition duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
-              <p className="dropdown-item">Example 1</p>
-              <p className="dropdown-item">Example Item 1</p>
-              <p className="dropdown-item">Example Item 2</p>
-            </div>
-          </div>
-
-          {/* Icons */}
-          <img
-            src="/assets/FlagGermany.svg"
-            alt="German Flag"
-            className="h-[25px] w-[25px] cursor-pointer rounded-full object-cover"
-          />
-          <svg
-            className="h-[35px] w-[35px] flex-shrink-0"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            fill="#4611F5"
-            stroke="#4611F5"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+          {/* Left Logo and Title */}
+          <div className="flex items-center space-x-2">
+            <CiBaseball
+              size={34}
+              style={{ color: "white", backgroundColor: "blue", borderRadius: "50%" }}
             />
-          </svg>
+            <p className="text-gradient">
+              <span className="font-normal">Wie</span>Führerschein
+            </p>
+          </div>
 
-          <button className="active:bg-[#2B0F87] active:text-white font-satoshi w-[110px] h-[44px] border border-blue-600 text-black px-4 py-1 rounded-[8px] hover:bg-[#4611F5] hover:text-white transition-colors duration-200">
-            Anmelden
-          </button>
+          {/* Space Header */}
+          <div className="w-[34vw] h-[7vh] bg-transparent rounded-md"></div>
+
+          {/* Desktop Menu */}
+          <div className="hidden 1200:flex items-center space-x-4 relative right-5">
+            {/* Menu 1 */}
+            <div className="relative group">
+              <button className="text-black hover:bg-gray-100 mt-0 text-[17px] p-2 rounded-md flex items-center">
+                Menu
+              </button>
+            </div>
+
+            {/* Menu 2 */}
+            <div className="dropdown-group group">
+              <button className="dropdown-button text-black whitespace-nowrap hover:bg-gray-100 flex group-hover:bg-gray-100 group-hover:rounded-md -mr-1 p-2 rounded-md items-center">
+                Menu 2
+                <span className="flex items-center justify-center w-6 h-6">
+                  <img
+                    className="transform transition-transform duration-300 ease-in-out group-hover:rotate-180 brightness-0 filter invert-0"
+                    src="/assets/keyboardArrowDown.svg"
+                    alt="Dropdown arrow"
+                  />
+                </span>
+              </button>
+              <div className="dropdown-hover-bridge"></div>
+              <div className="dropdown-menu-1 absolute top-full left-0 opacity-0 transform -translate-y-2 pointer-events-none transition duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
+                <p className="dropdown-item">Example 1</p>
+                <p className="dropdown-item">Example Item 2</p>
+              </div>
+            </div>
+
+            {/* Menu 3 */}
+            <div className="dropdown-group group">
+              <button className="dropdown-button whitespace-nowrap text-black hover:bg-gray-100 flex items-center p-2  rounded-md group">
+                Menu 3
+                <span className="flex items-center justify-center w-6 h-6">
+                  <img
+                    className="transform transition-transform duration-300 ease-in-out group-hover:rotate-180 brightness-0 filter invert-0"
+                    src="/assets/keyboardArrowDown.svg"
+                    alt="Dropdown arrow"
+                  />
+                </span>
+              </button>
+
+              <div className="dropdown-hover-bridge"></div>
+              <div className="dropdown-menu-2 absolute top-full left-0 opacity-0 transform -translate-y-2 pointer-events-none transition duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
+                <p className="dropdown-item">Example 1</p>
+                <p className="dropdown-item">Example Item 1</p>
+                <p className="dropdown-item">Example Item 2</p>
+              </div>
+            </div>
+          </div>
+          {/* Third Part */}
+          <div className="hidden 1200:flex items-center space-x-6">
+            {/* Icons */}
+            <img
+              src="/assets/FlagGermany.svg"
+              alt="German Flag"
+              className="h-[25px] w-[25px] cursor-pointer rounded-full object-cover"
+            />
+            <svg
+              className="h-[35px] w-[35px] flex-shrink-0"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              fill="#4611F5"
+              stroke="#4611F5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+              />
+            </svg>
+
+            <button className="active:bg-[#2B0F87] active:text-white font-satoshi w-[110px] h-[44px] border border-blue-600 text-black px-4 py-1 rounded-[8px] hover:bg-[#4611F5] hover:text-white transition-colors duration-200">
+              Anmelden
+            </button>
+          </div>
+
+          {/* Mobile Menu Icon */}
+          {!isOpen && (
+            <button onClick={() => setIsOpen(true)} className="1200:hidden">
+              <MdMenu className="text-gray-700 text-4xl" />
+            </button>
+          )}
         </div>
-
-        {/* Mobile Menu Icon */}
-        {!isOpen && (
-          <button onClick={() => setIsOpen(true)} className="1200:hidden">
-            <MdMenu className="text-gray-700 text-4xl" />
-          </button>
-        )}
       </header>
 
       {/* --- Mobile Sidebar + Overlay, rendered OUTSIDE header --- */}
